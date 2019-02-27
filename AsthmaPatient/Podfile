@@ -1,0 +1,11 @@
+platform :ios, '10.0'
+
+target 'AsthmaPatient' do
+use_frameworks!
+pod 'Reusable', '4.0.0'
+pod 'SnapKit', '~> 4.0.0'
+pod 'AloeStackView'
+pod 'Keyboard+LayoutGuide'
+pod 'Alamofire'
+pod "PromiseKit", "~> 6.8"
+end

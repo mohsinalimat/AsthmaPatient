@@ -1,0 +1,315 @@
+
+//1. A new state. http://77.234.215.138:49002/patients/8/status
+//Playload:
+{
+    "parameters": {
+        "pef": "0.03",
+        "spO2": "0.14",
+        "isHospitalized": false,
+        "isWheezing": true
+    }
+}
+ 
+//Response v1:
+{
+    "status": 200,
+    "message": "Patient",
+    "data": {
+        "patient": {
+            "status": {
+                "statusId": 32,
+                "parameters": {
+                    "isWheezing": true,
+                    "isHospitalized": false,
+                    "pef": 0.03,
+                    "spO2": 0.14
+                },
+                "description": "Предложить госпитализацию",
+                "medicines": [],
+                "patientState": {
+                    "id": 4,
+                    "name": "State3",
+                    "description": ""
+                },
+                "createdDate": "2019-02-20T16:14:24.3376345Z"
+            },
+            "patientId": 8,
+            "firstName": "Михаил",
+            "lastName": "Михайлович",
+            "birthDate": "1994-06-02T00:00:00",
+            "genderType": {
+                "id": 1,
+                "name": "Male",
+                "description": ""
+            }
+        }
+    }
+}
+
+//Resonse v2:
+{
+    "status": 200,
+    "message": "Patient",
+    "data": {
+        "patient": {
+            "status": {
+                "statusId": 33,
+                "parameters": {
+                    "isWheezing": true,
+                    "isHospitalized": false,
+                    "pef": 60.0,
+                    "spO2": 24.0
+                },
+                "description": "Ингаляционные β2-агонисты короткого действия с помощью небулайзера по 1 дозе (вентолин 2,5 мг или беротек 0,5 мг) каждые 20 мин в течение первого часа (если не проводились амбулаторно), далее ингаляционные β2-агонисты в прежних дозах каждые 60 мин через небулайзер. 2. Оксигенотерапия для достижения сатурации О2 > 90%. 3. Системные кортикостероиды, если нет ответа на лечение или больной недавно принимал стероиды.",
+                "medicines": [{
+                "id": 6,
+                "name": "MEDID006",
+                "description": "β2-агонисты короткого действия ингаляции с помощью небулайзера по 1 дозе (вентолин 2,5 мг или беротек 0,5 мг) каждые 20 мин в течение первого часа (если не проводились амбулаторно), далее ингаляционные β2-агонисты через небулайзер в прежних дозах каждые 60 мин."
+                }, {
+                "id": 7,
+                "name": "MEDID007",
+                "description": "Оксигенотерапия"
+                }, {
+                "id": 8,
+                "name": "MEDID008",
+                "description": "Системные кортикостероиды, если нет ответа на лечение или больной недавно принимал стероиды"
+                }],
+                "patientState": {
+                    "id": 8,
+                    "name": "State7",
+                    "description": ""
+                },
+                "createdDate": "2019-02-20T16:23:07.4381927Z"
+            },
+            "patientId": 8,
+            "firstName": "Михаил",
+            "lastName": "Михайлович",
+            "birthDate": "1994-06-02T00:00:00",
+            "genderType": {
+                "id": 1,
+                "name": "Male",
+                "description": ""
+            }
+        }
+    }
+}
+
+//2. Get all patients http://77.234.215.138:49002/patients
+{
+    "status": 200,
+    "message": "Patients",
+    "data": {
+        "patients": {
+            "count": 8,
+            "list": [{
+                "patientId": 1,
+                "firstName": "Дмитрий",
+                "lastName": "Донской",
+                "birthDate": "4154-03-12T00:00:00",
+                "genderType": {
+                    "id": 1,
+                    "name": "Male",
+                    "description": ""
+                }
+            }, {
+            "patientId": 2,
+            "firstName": "Дмитрий",
+            "lastName": "Донской",
+            "birthDate": "4511-03-12T00:00:00",
+            "genderType": {
+            "id": 1,
+            "name": "Male",
+            "description": ""
+            }
+            }, {
+            "patientId": 3,
+            "firstName": "САНЯ",
+            "lastName": "АХМЕТОВ",
+            "birthDate": "3222-02-28T00:00:00",
+            "genderType": {
+            "id": 1,
+            "name": "Male",
+            "description": ""
+            }
+            }, {
+            "patientId": 4,
+            "firstName": "Илья",
+            "lastName": "Иванов",
+            "birthDate": "2019-12-15T00:00:00",
+            "genderType": {
+            "id": 1,
+            "name": "Male",
+            "description": ""
+            }
+            }, {
+            "patientId": 5,
+            "firstName": "Михаил",
+            "lastName": "Анисимов",
+            "birthDate": "1987-03-28T00:00:00",
+            "genderType": {
+            "id": 1,
+            "name": "Male",
+            "description": ""
+            }
+            }, {
+            "patientId": 6,
+            "firstName": "тест",
+            "lastName": "тест",
+            "birthDate": "0002-03-12T00:00:00",
+            "genderType": {
+            "id": 1,
+            "name": "Male",
+            "description": ""
+            }
+            }, {
+            "patientId": 7,
+            "firstName": "wow",
+            "lastName": "wow",
+            "birthDate": "0031-12-23T00:00:00",
+            "genderType": {
+            "id": 1,
+            "name": "Male",
+            "description": ""
+            }
+            }, {
+            "patientId": 8,
+            "firstName": "Михаил",
+            "lastName": "Михайлович",
+            "birthDate": "1994-06-02T00:00:00",
+            "genderType": {
+            "id": 1,
+            "name": "Male",
+            "description": ""
+            }
+            }]
+        }
+    }
+}
+
+
+
+//3. Get history http://77.234.215.138:49002/patients/5/history
+{
+    "status": 200,
+    "message": "History",
+    "data": {
+        "history": {
+            "patient": {
+                "status": {
+                    "statusId": 18,
+                    "parameters": {
+                        "isWheezing": false,
+                        "isHospitalized": true,
+                        "pef": 0.04,
+                        "spO2": 0.05
+                    },
+                    "description": "Продолжить ингаляции β2-агонистов в прежних дозах каждый час; преднизолон внутрь 80 мг; осмотр пульмонологом для коррекции базисной терапии",
+                    "medicines": [{
+                        "id": 1,
+                        "name": "MEDID001",
+                        "description": "β2-агонисты ингаляции каждые 2-4 часа"
+                    }, {
+                        "id": 2,
+                        "name": "MEDID002",
+                        "description": "Глюкокортикостероиды перорально (преднизолон 30 мг)"
+                    }, {
+                        "id": 3,
+                        "name": "MEDID003",
+                        "description": "Ингаляции атровента 40 мкг с помощью дозированного аэрозоля или 0,5 мг через небулайзер или эуфиллин 2,4% — 10,0 внутривенно медленно"
+                    }],
+                        "patientState": {
+                            "id": 5,
+                            "name": "State4",
+                            "description": ""
+                    },
+                    "createdDate": "2019-01-31T09:44:32.1621546"
+                },
+                "patientId": 5,
+                "firstName": "Михаил",
+                "lastName": "Анисимов",
+                "birthDate": "1987-03-28T00:00:00",
+                "genderType": {
+                    "id": 1,
+                    "name": "Male",
+                    "description": ""
+                }
+            },
+            "statuses": {
+                "count": 3,
+                "list": [{
+                    "statusId": 16,
+                    "parameters": {
+                        "isWheezing": false,
+                        "isHospitalized": false,
+                        "pef": 0.0,
+                        "spO2": 0.0
+                    },
+                    "description": "Начальное состояние",
+                    "medicines": [],
+                    "patientState": {
+                        "id": 1,
+                        "name": "Initial",
+                        "description": ""
+                    },
+                    "createdDate": "2019-01-30T12:14:42.5334022"
+                }, {
+                "statusId": 17,
+                "parameters": {
+                    "isWheezing": false,
+                    "isHospitalized": false,
+                    "pef": 0.1,
+                    "spO2": 0.05
+                },
+                "description": "Продолжить ингаляции β2-агонистов в прежних дозах каждый час; преднизолон внутрь 80 мг; осмотр пульмонологом для коррекции базисной терапии",
+                "medicines": [{
+                    "id": 1,
+                    "name": "MEDID001",
+                    "description": "β2-агонисты ингаляции каждые 2-4 часа"
+                }, {
+                    "id": 2,
+                    "name": "MEDID002",
+                    "description": "Глюкокортикостероиды перорально (преднизолон 30 мг)"
+                }, {
+                    "id": 3,
+                    "name": "MEDID003",
+                    "description": "Ингаляции атровента 40 мкг с помощью дозированного аэрозоля или 0,5 мг через небулайзер или эуфиллин 2,4% — 10,0 внутривенно медленно"
+                }],
+                "patientState": {
+                    "id": 5,
+                    "name": "State4",
+                    "description": ""
+                },
+                "createdDate": "2019-01-30T12:15:10.0826954"
+                }, {
+                "statusId": 18,
+                "parameters": {
+                    "isWheezing": false,
+                    "isHospitalized": true,
+                    "pef": 0.04,
+                    "spO2": 0.05
+                },
+                "description": "Продолжить ингаляции β2-агонистов в прежних дозах каждый час; преднизолон внутрь 80 мг; осмотр пульмонологом для коррекции базисной терапии",
+                "medicines": [{
+                    "id": 1,
+                    "name": "MEDID001",
+                    "description": "β2-агонисты ингаляции каждые 2-4 часа"
+                }, {
+                    "id": 2,
+                    "name": "MEDID002",
+                    "description": "Глюкокортикостероиды перорально (преднизолон 30 мг)"
+                }, {
+                    "id": 3,
+                    "name": "MEDID003",
+                    "description": "Ингаляции атровента 40 мкг с помощью дозированного аэрозоля или 0,5 мг через небулайзер или эуфиллин 2,4% — 10,0 внутривенно медленно"
+                }],
+                "patientState": {
+                    "id": 5,
+                    "name": "State4",
+                    "description": ""
+                },
+                "createdDate": "2019-01-31T09:44:32.1621546"
+                }]
+            }
+        }
+    }
+}
