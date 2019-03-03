@@ -23,6 +23,5 @@ class PatientTableViewCell: UITableViewCell, Reusable {
         }
         
         dateOfBirthLabel.text = patient.dateOfBirth
-//        sexLabel.text = patient.
     }
 }

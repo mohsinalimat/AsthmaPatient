@@ -8,4 +8,6 @@ pod 'AloeStackView'
 pod 'Keyboard+LayoutGuide'
 pod 'Alamofire'
 pod "PromiseKit", "~> 6.8"
+pod 'MagazineLayout'
+pod 'BulletinBoard'
 end

@@ -1,7 +1,9 @@
 PODS:
   - Alamofire (4.8.1)
   - AloeStackView (1.0.1)
+  - BulletinBoard (3.0.0)
   - "Keyboard+LayoutGuide (1.3.0)"
+  - MagazineLayout (1.2.1)
   - PromiseKit (6.8.3):
     - PromiseKit/CorePromise (= 6.8.3)
     - PromiseKit/Foundation (= 6.8.3)
@@ -21,7 +23,9 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AloeStackView
+  - BulletinBoard
   - "Keyboard+LayoutGuide"
+  - MagazineLayout
   - PromiseKit (~> 6.8)
   - Reusable (= 4.0.0)
   - SnapKit (~> 4.0.0)
@@ -30,7 +34,9 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - AloeStackView
+    - BulletinBoard
     - "Keyboard+LayoutGuide"
+    - MagazineLayout
     - PromiseKit
     - Reusable
     - SnapKit
@@ -38,11 +44,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   AloeStackView: d22c006da4510db5e220968234174654b5ed6ea5
+  BulletinBoard: 927f4f9fd22503ceecd71bfc830fd65d5996593a
   "Keyboard+LayoutGuide": a24171d454e1065bdd31f1d9f09988d6b1616e88
+  MagazineLayout: cd9cb2174bcf1c349d8286390c7f9716e4ef40b9
   PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
   Reusable: 98e5fff1e0e2e00872199699b276dde08ee56c07
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
 
-PODFILE CHECKSUM: 68ff3229e68a1d5e9ac5dd5337af1f09a03f8e68
+PODFILE CHECKSUM: 2400696349a6adb773286a3d4f8507544858b56c
 
 COCOAPODS: 1.5.3

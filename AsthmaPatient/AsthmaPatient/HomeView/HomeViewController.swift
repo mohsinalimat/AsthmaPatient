@@ -29,9 +29,12 @@ class HomeViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
         service.getPatients { [weak self] result in
             self?.patients = result
         }
+        
+        APIPatients.getAllPatients()
     }
 }
 
