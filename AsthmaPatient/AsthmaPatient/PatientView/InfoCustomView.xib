@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="InfoCustomView" customModule="AsthmaPatient" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="857"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дата" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ED6-gm-rND">
+                    <rect key="frame" x="12" y="32" width="351" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Dug-UP-0ti"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="D5i-yW-B2a">
+                    <rect key="frame" x="12" y="74" width="351" height="777"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fb-p9-3JS">
+                            <rect key="frame" x="0.0" y="0.0" width="351" height="101.5"/>
+                            <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae porta lacus. Etiam accumsan, justo et pellentesque hendrerit, libero sem molestie sem, non pretium dui arcu </string>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1eq-ZN-g3d">
+                            <rect key="frame" x="0.0" y="255.5" width="351" height="2"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="NSS-uL-fDc"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ep-En-0SO">
+                            <rect key="frame" x="0.0" y="411.5" width="351" height="365.5"/>
+                            <mutableString key="text">Nullam nisl tellus, malesuada at dictum viverra, interdum non risus. Sed porta neque purus, eu molestie lacus feugiat eget. Aenean ex odio, tincidunt in risus non, egestas volutpat velit. Maecenas molestie, dui a finibus imperdiet, eros quam sollicitudin urna, at facilisis sem tellus et nisl. Nam fermentum urna ac mauris consectetur tempor. Sed sollicitudin lobortis ligula in tempor. Etiam rhoncus varius justo. Pellentesque ut tortor fermentum nisl ultrices tincidunt vitae at sem. Aenean laoreet porta dui eu varius. Nullam eu mi facilisis, mollis velit ut, volutpat orci. Suspendisse ac vehicula nunc. Aenean eu scelerisque orci. Aliquam non bibendum turpis, sit amet tempus dolor. Donec blandit pellentesque facilisis. Maecenas quis tristique ante.</mutableString>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="1eq-ZN-g3d" firstAttribute="leading" secondItem="D5i-yW-B2a" secondAttribute="leading" id="1bB-BV-PFo"/>
+                        <constraint firstAttribute="trailing" secondItem="2fb-p9-3JS" secondAttribute="trailing" id="Ety-mj-eAl"/>
+                        <constraint firstAttribute="trailing" secondItem="0Ep-En-0SO" secondAttribute="trailing" id="NTX-cG-bsU"/>
+                        <constraint firstItem="0Ep-En-0SO" firstAttribute="leading" secondItem="D5i-yW-B2a" secondAttribute="leading" id="O6r-jI-Zft"/>
+                        <constraint firstItem="2fb-p9-3JS" firstAttribute="leading" secondItem="D5i-yW-B2a" secondAttribute="leading" id="SYf-bL-mDj"/>
+                        <constraint firstAttribute="trailing" secondItem="1eq-ZN-g3d" secondAttribute="trailing" id="W3i-35-dGZ"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="D5i-yW-B2a" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="1et-5n-f0G"/>
+                <constraint firstItem="D5i-yW-B2a" firstAttribute="top" secondItem="ED6-gm-rND" secondAttribute="bottom" constant="12" id="Dvn-gB-ee4"/>
+                <constraint firstAttribute="trailing" secondItem="D5i-yW-B2a" secondAttribute="trailing" constant="12" id="Exq-Ns-xRy"/>
+                <constraint firstItem="ED6-gm-rND" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="Fea-QV-GNR"/>
+                <constraint firstItem="ED6-gm-rND" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="Kgj-6X-JrT"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="D5i-yW-B2a" secondAttribute="bottom" constant="6" id="fcH-mN-40R"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ED6-gm-rND" secondAttribute="trailing" constant="12" id="n2J-C0-wWF"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="dateLabel" destination="ED6-gm-rND" id="43L-Bx-rWv"/>
+                <outlet property="descLabel" destination="2fb-p9-3JS" id="IQ4-T2-FQ5"/>
+                <outlet property="medcinesLabel" destination="0Ep-En-0SO" id="VM3-Ua-3G6"/>
+            </connections>
+            <point key="canvasLocation" x="138.40000000000001" y="192.05397301349328"/>
+        </view>
+    </objects>
+</document>

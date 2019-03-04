@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F5F3B85222D9ECF00492F13 /* InfoCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5F3B84222D9ECF00492F13 /* InfoCustomView.swift */; };
+		0F5F3B87222D9EE700492F13 /* InfoCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5F3B86222D9EE700492F13 /* InfoCustomView.xib */; };
+		0F5F3B89222DA39900492F13 /* ParametersCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5F3B88222DA39900492F13 /* ParametersCustomView.xib */; };
+		0F5F3B8D222DA3B500492F13 /* ParametersCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5F3B8C222DA3B500492F13 /* ParametersCustomView.swift */; };
 		0F6EB3E92226C73100035D82 /* APIPatients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6EB3E82226C73100035D82 /* APIPatients.swift */; };
-		0F83D3D7222C6470008CDD43 /* InfoCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F83D3D6222C6470008CDD43 /* InfoCustomView.swift */; };
 		0FB3D6C62221854C00459992 /* PatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3D6C52221854C00459992 /* PatientTableViewCell.swift */; };
 		0FB3D6C82221970000459992 /* PatientStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3D6C72221970000459992 /* PatientStatus.swift */; };
 		0FB3D6CA22219C1600459992 /* PatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3D6C922219C1600459992 /* PatientViewController.swift */; };
@@ -29,8 +32,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F5F3B84222D9ECF00492F13 /* InfoCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCustomView.swift; sourceTree = "<group>"; };
+		0F5F3B86222D9EE700492F13 /* InfoCustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCustomView.xib; sourceTree = "<group>"; };
+		0F5F3B88222DA39900492F13 /* ParametersCustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParametersCustomView.xib; sourceTree = "<group>"; };
+		0F5F3B8C222DA3B500492F13 /* ParametersCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersCustomView.swift; sourceTree = "<group>"; };
 		0F6EB3E82226C73100035D82 /* APIPatients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPatients.swift; sourceTree = "<group>"; };
-		0F83D3D6222C6470008CDD43 /* InfoCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCustomView.swift; sourceTree = "<group>"; };
 		0FB3D6C52221854C00459992 /* PatientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewCell.swift; sourceTree = "<group>"; };
 		0FB3D6C72221970000459992 /* PatientStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientStatus.swift; sourceTree = "<group>"; };
 		0FB3D6C922219C1600459992 /* PatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +87,10 @@
 			children = (
 				0FB3D6C922219C1600459992 /* PatientViewController.swift */,
 				0FB3D6CD2221A6C200459992 /* PatientStatusTableViewCell.swift */,
-				0F83D3D6222C6470008CDD43 /* InfoCustomView.swift */,
+				0F5F3B84222D9ECF00492F13 /* InfoCustomView.swift */,
+				0F5F3B86222D9EE700492F13 /* InfoCustomView.xib */,
+				0F5F3B8C222DA3B500492F13 /* ParametersCustomView.swift */,
+				0F5F3B88222DA39900492F13 /* ParametersCustomView.xib */,
 			);
 			path = PatientView;
 			sourceTree = "<group>";
@@ -211,7 +220,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F5F3B89222DA39900492F13 /* ParametersCustomView.xib in Resources */,
 				0FCAAA3B221DB1E900CCFE46 /* LaunchScreen.storyboard in Resources */,
+				0F5F3B87222D9EE700492F13 /* InfoCustomView.xib in Resources */,
 				0FCAAA38221DB1E900CCFE46 /* Assets.xcassets in Resources */,
 				0FCAAA36221DB1E800CCFE46 /* Main.storyboard in Resources */,
 			);
@@ -289,6 +300,7 @@
 				0FD583472226AF8E00C18EB7 /* HomeViewInteractor.swift in Sources */,
 				0FCAAA4B221DB60500CCFE46 /* Notes.json in Sources */,
 				0FD583492226B5BA00C18EB7 /* Networking.swift in Sources */,
+				0F5F3B85222D9ECF00492F13 /* InfoCustomView.swift in Sources */,
 				0FCAAA45221DB25800CCFE46 /* Symptom.swift in Sources */,
 				0FCAAA31221DB1E800CCFE46 /* AppDelegate.swift in Sources */,
 				0FB3D6CA22219C1600459992 /* PatientViewController.swift in Sources */,
@@ -298,8 +310,8 @@
 				0FCAAA49221DB49800CCFE46 /* APIService.swift in Sources */,
 				0FCAAA43221DB1F600CCFE46 /* Patient.swift in Sources */,
 				0F6EB3E92226C73100035D82 /* APIPatients.swift in Sources */,
-				0F83D3D7222C6470008CDD43 /* InfoCustomView.swift in Sources */,
 				0FB3D6CE2221A6C200459992 /* PatientStatusTableViewCell.swift in Sources */,
+				0F5F3B8D222DA3B500492F13 /* ParametersCustomView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

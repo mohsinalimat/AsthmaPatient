@@ -11,6 +11,7 @@ import Reusable
 import BLTNBoard
 import SnapKit
 
+
 class PatientViewController: UIViewController, StoryboardSceneBased {
     
     @IBOutlet weak var tableView: UITableView!

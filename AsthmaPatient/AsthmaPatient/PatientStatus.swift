@@ -21,4 +21,17 @@ struct PatientStatus: Codable {
         var pef: Float
         var spO2: Float
     }
+    
+    var medcinesString: String? {
+        get {
+            if medcines != nil {
+                var result = ""
+                for medcine in medcines! {
+                    result.append(medcine.name + medcine.description + "\n")
+                }
+                return result
+            }
+            return nil
+        }
+    }
 }
