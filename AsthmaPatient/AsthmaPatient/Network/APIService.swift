@@ -20,12 +20,17 @@ class APIService {
     func getPatients(_ completionHandler: @escaping ([Patient]?) -> (Void)) {
         let urlSession = URLSession.shared
         guard let requestUrl = URL(string: "\(host)\(path.patients)") else {
+            completionHandler(nil)
             return
         }
         
-        let request = URLRequest(url: requestUrl)
+        var request = URLRequest(url: requestUrl)
+        request.timeoutInterval = TimeInterval(exactly: 10.0)!
         let urlTask = urlSession.dataTask(with: request) { (data, response, error) in
-            guard let data = data else { return }
+            guard let data = data else {
+                completionHandler(nil)
+                return
+            }
             var jsonData: Any?
             do {
                 jsonData = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
@@ -94,6 +99,54 @@ class APIService {
             }
         }
         urlTask.resume()
+    }
+    
+    func createPatient(_ patientDict: [String : Any], completionHandler: @escaping (Bool) -> (Void)) {
+        let urlSession = URLSession.shared
+        guard let requestUrl = URL(string: "\(host)\(path.patients)") else {
+            return
+        }
+        var bodData = Data()
+        do {
+            bodData = try JSONSerialization.data(withJSONObject: patientDict, options: .prettyPrinted)
+        } catch {
+            
+        }
+        
+        var request = URLRequest(url: requestUrl)
+        request.httpMethod = "POST"
+        request.httpBody = bodData
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let urlTask = urlSession.dataTask(with: request) { (data, response, error) in
+            guard let data = data else {
+                completionHandler(false)
+                return
+            }
+            var jsonData: Any?
+            completionHandler(true)
+        }
+        urlTask.resume()
+    }
+    
+    func createPatientStatus(using data: Data, patientId: String, completionHandler: @escaping (Bool) -> (Void)) {
+        let urlSession = URLSession.shared
+        guard let requestUrl = URL(string: "\(host)\(path.patients)/\(patientId)/status") else {
+            return
+        }
+        var request = URLRequest(url: requestUrl)
+        request.httpMethod = "POST"
+        request.httpBody = data
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let urlTask = urlSession.dataTask(with: request) { (data, response, error) in
+            guard let data = data else {
+                completionHandler(false)
+                return
+            }
+            var jsonData: Any?
+            completionHandler(true)
+        }
+        urlTask.resume()
+        
     }
 }
 

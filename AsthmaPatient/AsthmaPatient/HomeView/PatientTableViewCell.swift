@@ -22,6 +22,7 @@ class PatientTableViewCell: UITableViewCell, Reusable {
             nameLabel.text?.append(" \(middleName)")
         }
         
-        dateOfBirthLabel.text = patient.dateOfBirth
+        dateOfBirthLabel.text = patient.birthDate
+        sexLabel.text = patient.genderType.name == "Male" ? "Мужской" : "Женский"
     }
 }

@@ -11,7 +11,7 @@ import Foundation
 struct PatientStatus: Codable {
     var statusId: Int
     var description: String
-    var medcines: [Medicine]?
+    var medicines: [Medicine]?
     var createdDate: String?
     var parameters: Parameter?
     
@@ -24,14 +24,23 @@ struct PatientStatus: Codable {
     
     var medcinesString: String? {
         get {
-            if medcines != nil {
+            if medicines != nil {
                 var result = ""
-                for medcine in medcines! {
+                for medcine in medicines! {
                     result.append(medcine.name + medcine.description + "\n")
                 }
                 return result
             }
             return nil
+        }
+    }
+    
+    var formatedDate: Date {
+        get {
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale.current
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSS"
+            return dateFormatter.date(from: createdDate!)!
         }
     }
 }

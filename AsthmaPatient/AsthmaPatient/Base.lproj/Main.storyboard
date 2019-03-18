@@ -10,16 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Пациенты-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="AsthmaPatient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xhu-Ri-adE">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PatientTableViewCell" rowHeight="124" id="kcI-T5-7KQ" customClass="PatientTableViewCell" customModule="AsthmaPatient" customModuleProvider="target">
@@ -129,7 +129,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Пациенты" id="qtV-FF-8ki"/>
+                    <navigationItem key="navigationItem" id="qtV-FF-8ki"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="gCx-hI-Jb2" id="iRg-hg-Gmo"/>
                         <outlet property="tableView" destination="Xhu-Ri-adE" id="LDW-oz-drh"/>
@@ -154,34 +154,9 @@
                     <view key="view" contentMode="scaleToFill" id="bhk-cD-EgF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="buA-Ng-fHV">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PatientStatusTableViewCell" rowHeight="134" id="OZn-2j-ugu" customClass="PatientStatusTableViewCell" customModule="AsthmaPatient" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="134"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OZn-2j-ugu" id="nBW-1d-hvX">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="133.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="buA-Ng-fHV" firstAttribute="leading" secondItem="k2Z-d5-nbL" secondAttribute="leading" id="EEA-aM-pzy"/>
-                            <constraint firstItem="k2Z-d5-nbL" firstAttribute="trailing" secondItem="buA-Ng-fHV" secondAttribute="trailing" id="Ga3-kc-dkl"/>
-                            <constraint firstItem="k2Z-d5-nbL" firstAttribute="bottom" secondItem="buA-Ng-fHV" secondAttribute="bottom" id="b9h-A0-yFe"/>
-                            <constraint firstItem="buA-Ng-fHV" firstAttribute="top" secondItem="k2Z-d5-nbL" secondAttribute="top" id="hJu-xi-0qk"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="k2Z-d5-nbL"/>
                     </view>
-                    <connections>
-                        <outlet property="tableView" destination="buA-Ng-fHV" id="kNL-Rt-uZv"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCd-bF-u47" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -192,9 +167,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oTM-GN-huG" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="haG-eB-EEk">
-                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="haG-eB-EEk">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

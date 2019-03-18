@@ -10,14 +10,14 @@ import UIKit
 import Reusable
 import BLTNBoard
 import SnapKit
-
+import MagazineLayout
 
 class PatientViewController: UIViewController, StoryboardSceneBased {
     
-    @IBOutlet weak var tableView: UITableView!
-    
     var patient: Patient?
     var states: [PatientStatus]?
+    
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: MagazineLayout())
     
     static var sceneStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
@@ -25,6 +25,7 @@ class PatientViewController: UIViewController, StoryboardSceneBased {
     private lazy var bulletinManager: BLTNItemManager = {
         let rootItem = BLTNNewStateItem(title: "Добавить состояние")
         rootItem.actionButtonTitle = "Добавить"
+        rootItem.delegate = self
         return BLTNItemManager(rootItem: rootItem)
     }()
     
@@ -34,19 +35,25 @@ class PatientViewController: UIViewController, StoryboardSceneBased {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self,
                                                             action: #selector(addNewState))
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 280.0
-        tableView.register(cellType: PatientStatusTableViewCell.self)
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.tableFooterView = UIView(frame: .zero)
+        view.addSubview(collectionView)
+        collectionView.register(cellType: PatientStatusCollectionViewCell.self)
+        collectionView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        
+        collectionView.layoutIfNeeded()
+        
+        collectionView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
         
         if let newPatient = patient {
             navigationItem.title = "\(newPatient.lastName) \(newPatient.firstName)"
             service.getPatientsHistory(id: newPatient.patientId, completionHandler: { [weak self] result in
                 self?.states = result
                 DispatchQueue.main.async {
-                    self?.tableView.reloadData()
+                    self?.collectionView.reloadData()
                 }
             })
         }
@@ -55,27 +62,80 @@ class PatientViewController: UIViewController, StoryboardSceneBased {
     @objc func addNewState() {
         bulletinManager.showBulletin(above: self)
     }
-}
-
-extension PatientViewController: UITableViewDelegate {
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        collectionView.reloadData()
+    }
 }
 
-extension PatientViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension PatientViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return states?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: PatientStatusTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: PatientStatusCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
         if let state = states?[indexPath.row] {
             cell.setupView(traitCollection.horizontalSizeClass, state: state)
         }
-        
+        cell.layer.cornerRadius = 15.0
+        cell.clipsToBounds = true
         return cell
     }
 }
 
+extension PatientViewController: UICollectionViewDelegateMagazineLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeModeForItemAt indexPath: IndexPath) -> MagazineLayoutItemSizeMode {
+        let widthMode = MagazineLayoutItemWidthMode.fullWidth(respectsHorizontalInsets: true)
+        let heightMode = MagazineLayoutItemHeightMode.dynamic
+        return MagazineLayoutItemSizeMode(widthMode: widthMode, heightMode: heightMode)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, visibilityModeForHeaderInSectionAtIndex index: Int) -> MagazineLayoutHeaderVisibilityMode {
+        return .visible(heightMode: .dynamic)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, visibilityModeForBackgroundInSectionAtIndex index: Int) -> MagazineLayoutBackgroundVisibilityMode {
+        return .hidden
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, horizontalSpacingForItemsInSectionAtIndex index: Int) -> CGFloat {
+        return  12
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, verticalSpacingForElementsInSectionAtIndex index: Int) -> CGFloat {
+        return  12
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetsForItemsInSectionAtIndex index: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 12, left: 12, bottom: 24, right: 12)
+    }
+}
+
+extension PatientViewController: BLTNNewStateItemDelegate {
+    func create(newStateData: Data) {
+        bulletinManager.dismissBulletin()
+        guard let patientID = patient?.patientId else {
+            return
+        }
+        
+        let intVal = NSNumber(value: patientID).stringValue
+        service.createPatientStatus(using: newStateData, patientId: intVal) {[weak self] (result) -> (Void) in
+            self?.service.getPatientsHistory(id: patientID, completionHandler: { (result) -> (Void) in
+                DispatchQueue.main.async {
+                    self?.states = result
+                    self?.collectionView.reloadData()
+                }
+            })
+        }
+    }
+}
+
+protocol BLTNNewStateItemDelegate {
+    func create(newStateData: Data)
+}
 
 class BLTNNewStateItem: BLTNPageItem {
     var textFieldPEF: UITextField!
@@ -83,11 +143,7 @@ class BLTNNewStateItem: BLTNPageItem {
     var switchWithTitle1: SwitchViewWithTitle!
     var switchWithTitle2: SwitchViewWithTitle!
     
-//    override var actionButton: UIButton {
-//        let doneButton = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: 400.0, height: 44.0))
-//        doneButton.titleLabel?.text = "Добавить"
-//        return doneButton
-//    }
+    var delegate: BLTNNewStateItemDelegate?
     
     lazy var hospitalizedView: UIView = {
        let view = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 400.0, height: 44.0))
@@ -113,6 +169,22 @@ class BLTNNewStateItem: BLTNPageItem {
         let views: [UIView]
         views = [textFieldPEF, textFieldOPF2, switchWithTitle1, switchWithTitle2]
         return views
+    }
+    
+    override func actionButtonTapped(sender: UIButton) {
+        let formatter = NumberFormatter()
+        
+        let data = ["pef": textFieldPEF.text,
+                    "spO2" : textFieldOPF2.text,
+                    "isHospitalized" : switchWithTitle1.state,
+                    "isWheezing" : switchWithTitle2.state] as [String : Any]
+        let newSymptom = ["parameters": data]
+        do {
+            let dict = try JSONSerialization.data(withJSONObject: newSymptom, options: .prettyPrinted)
+            delegate?.create(newStateData: dict)
+        } catch {
+            
+        }
     }
 }
 

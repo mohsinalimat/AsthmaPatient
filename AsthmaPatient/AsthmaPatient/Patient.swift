@@ -13,8 +13,15 @@ struct Patient: Codable {
     var firstName: String
     var lastName: String
     var middleName: String?
-    var dateOfBirth: String?
+    var birthDate: String?
     var symptom: Symptom?
     var medicines: [Medicine]?
     var notes: String?
+    var genderType: Gender
 }
+
+struct Gender: Codable {
+    var description: String
+    var name: String
+}
+

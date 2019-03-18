@@ -11,12 +11,14 @@
 		0F5F3B87222D9EE700492F13 /* InfoCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5F3B86222D9EE700492F13 /* InfoCustomView.xib */; };
 		0F5F3B89222DA39900492F13 /* ParametersCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5F3B88222DA39900492F13 /* ParametersCustomView.xib */; };
 		0F5F3B8D222DA3B500492F13 /* ParametersCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5F3B8C222DA3B500492F13 /* ParametersCustomView.swift */; };
+		0F5F3B91222DC59E00492F13 /* BLTNNewPatientItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5F3B90222DC59E00492F13 /* BLTNNewPatientItem.swift */; };
+		0F65294A2237CC9A00A40663 /* EmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F6529492237CC9A00A40663 /* EmptyStateView.xib */; };
 		0F6EB3E92226C73100035D82 /* APIPatients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6EB3E82226C73100035D82 /* APIPatients.swift */; };
 		0FB3D6C62221854C00459992 /* PatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3D6C52221854C00459992 /* PatientTableViewCell.swift */; };
 		0FB3D6C82221970000459992 /* PatientStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3D6C72221970000459992 /* PatientStatus.swift */; };
 		0FB3D6CA22219C1600459992 /* PatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3D6C922219C1600459992 /* PatientViewController.swift */; };
 		0FB3D6CC2221A45600459992 /* Medicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3D6CB2221A45500459992 /* Medicine.swift */; };
-		0FB3D6CE2221A6C200459992 /* PatientStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3D6CD2221A6C200459992 /* PatientStatusTableViewCell.swift */; };
+		0FB3D6CE2221A6C200459992 /* PatientStatusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3D6CD2221A6C200459992 /* PatientStatusCollectionViewCell.swift */; };
 		0FCAAA31221DB1E800CCFE46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCAAA30221DB1E800CCFE46 /* AppDelegate.swift */; };
 		0FCAAA33221DB1E800CCFE46 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCAAA32221DB1E800CCFE46 /* HomeViewController.swift */; };
 		0FCAAA36221DB1E800CCFE46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FCAAA34221DB1E800CCFE46 /* Main.storyboard */; };
@@ -36,12 +38,14 @@
 		0F5F3B86222D9EE700492F13 /* InfoCustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoCustomView.xib; sourceTree = "<group>"; };
 		0F5F3B88222DA39900492F13 /* ParametersCustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParametersCustomView.xib; sourceTree = "<group>"; };
 		0F5F3B8C222DA3B500492F13 /* ParametersCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersCustomView.swift; sourceTree = "<group>"; };
+		0F5F3B90222DC59E00492F13 /* BLTNNewPatientItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLTNNewPatientItem.swift; sourceTree = "<group>"; };
+		0F6529492237CC9A00A40663 /* EmptyStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyStateView.xib; sourceTree = "<group>"; };
 		0F6EB3E82226C73100035D82 /* APIPatients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPatients.swift; sourceTree = "<group>"; };
 		0FB3D6C52221854C00459992 /* PatientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientTableViewCell.swift; sourceTree = "<group>"; };
 		0FB3D6C72221970000459992 /* PatientStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientStatus.swift; sourceTree = "<group>"; };
 		0FB3D6C922219C1600459992 /* PatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientViewController.swift; sourceTree = "<group>"; };
 		0FB3D6CB2221A45500459992 /* Medicine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Medicine.swift; sourceTree = "<group>"; };
-		0FB3D6CD2221A6C200459992 /* PatientStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientStatusTableViewCell.swift; sourceTree = "<group>"; };
+		0FB3D6CD2221A6C200459992 /* PatientStatusCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientStatusCollectionViewCell.swift; sourceTree = "<group>"; };
 		0FCAAA2D221DB1E800CCFE46 /* AsthmaPatient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsthmaPatient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FCAAA30221DB1E800CCFE46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FCAAA32221DB1E800CCFE46 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -72,12 +76,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F5F3B8E222DB6A500492F13 /* ParametersCustomView */ = {
+			isa = PBXGroup;
+			children = (
+				0F5F3B8C222DA3B500492F13 /* ParametersCustomView.swift */,
+				0F5F3B88222DA39900492F13 /* ParametersCustomView.xib */,
+			);
+			path = ParametersCustomView;
+			sourceTree = "<group>";
+		};
+		0F5F3B8F222DB6B600492F13 /* InfoCustomView */ = {
+			isa = PBXGroup;
+			children = (
+				0F5F3B84222D9ECF00492F13 /* InfoCustomView.swift */,
+				0F5F3B86222D9EE700492F13 /* InfoCustomView.xib */,
+			);
+			path = InfoCustomView;
+			sourceTree = "<group>";
+		};
 		0F83D3D0222BE2FA008CDD43 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
 				0FCAAA32221DB1E800CCFE46 /* HomeViewController.swift */,
 				0FD583462226AF8E00C18EB7 /* HomeViewInteractor.swift */,
 				0FB3D6C52221854C00459992 /* PatientTableViewCell.swift */,
+				0F5F3B90222DC59E00492F13 /* BLTNNewPatientItem.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -86,11 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				0FB3D6C922219C1600459992 /* PatientViewController.swift */,
-				0FB3D6CD2221A6C200459992 /* PatientStatusTableViewCell.swift */,
-				0F5F3B84222D9ECF00492F13 /* InfoCustomView.swift */,
-				0F5F3B86222D9EE700492F13 /* InfoCustomView.xib */,
-				0F5F3B8C222DA3B500492F13 /* ParametersCustomView.swift */,
-				0F5F3B88222DA39900492F13 /* ParametersCustomView.xib */,
+				0FB3D6CD2221A6C200459992 /* PatientStatusCollectionViewCell.swift */,
+				0F5F3B8F222DB6B600492F13 /* InfoCustomView */,
+				0F5F3B8E222DB6A500492F13 /* ParametersCustomView */,
 			);
 			path = PatientView;
 			sourceTree = "<group>";
@@ -128,6 +149,7 @@
 				0FCAAA42221DB1F600CCFE46 /* Patient.swift */,
 				0FCAAA44221DB25800CCFE46 /* Symptom.swift */,
 				0FB3D6C72221970000459992 /* PatientStatus.swift */,
+				0F6529492237CC9A00A40663 /* EmptyStateView.xib */,
 			);
 			path = AsthmaPatient;
 			sourceTree = "<group>";
@@ -220,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F65294A2237CC9A00A40663 /* EmptyStateView.xib in Resources */,
 				0F5F3B89222DA39900492F13 /* ParametersCustomView.xib in Resources */,
 				0FCAAA3B221DB1E900CCFE46 /* LaunchScreen.storyboard in Resources */,
 				0F5F3B87222D9EE700492F13 /* InfoCustomView.xib in Resources */,
@@ -310,8 +333,9 @@
 				0FCAAA49221DB49800CCFE46 /* APIService.swift in Sources */,
 				0FCAAA43221DB1F600CCFE46 /* Patient.swift in Sources */,
 				0F6EB3E92226C73100035D82 /* APIPatients.swift in Sources */,
-				0FB3D6CE2221A6C200459992 /* PatientStatusTableViewCell.swift in Sources */,
+				0FB3D6CE2221A6C200459992 /* PatientStatusCollectionViewCell.swift in Sources */,
 				0F5F3B8D222DA3B500492F13 /* ParametersCustomView.swift in Sources */,
+				0F5F3B91222DC59E00492F13 /* BLTNNewPatientItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +485,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K9E3J7LG9L;
 				INFOPLIST_FILE = AsthmaPatient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,6 +505,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K9E3J7LG9L;
 				INFOPLIST_FILE = AsthmaPatient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
