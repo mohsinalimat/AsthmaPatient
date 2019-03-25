@@ -22,7 +22,6 @@ class HomeViewController: UIViewController {
     fileprivate let searchBar = UISearchBar()
     fileprivate var patients = [Patient]()
     fileprivate var filteredPatiens = [Patient]()
-    fileprivate let service = APIService()
     fileprivate lazy var bulletinManager: BLTNItemManager = {
         let rootItem = BLTNNewPatientItem(title: "Добавить пациента")
         rootItem.delegate = self
@@ -80,18 +79,19 @@ class HomeViewController: UIViewController {
     }
     
     func getPatients() {
-        service.getPatients { [unowned self] result in
+        APIPatients.getPatients { [weak self] result in
             DispatchQueue.main.async {
-                guard result != nil else {
-                    self.state = .empty
+                guard let listOfPatient = result, let weakSelf = self else {
+                    self?.state = .empty
                     return
                 }
-                self.patients = result!
-                self.filteredPatiens = result!
-                self.state = self.patients.count == 0 ? .empty : .full
-                self.tableView.reloadData()
+                weakSelf.patients = listOfPatient
+                weakSelf.filteredPatiens = listOfPatient
+                weakSelf.state = weakSelf.patients.count == 0 ? .empty : .full
+                weakSelf.tableView.reloadData()
             }
         }
+
     }
     
     @objc func addNewPatient() {
@@ -111,7 +111,6 @@ extension HomeViewController: UITableViewDataSource {
         cell.setup(with: patient)
         return cell
     }
-    
 }
 
 extension HomeViewController: UITableViewDelegate {
@@ -140,22 +139,28 @@ extension HomeViewController: UISearchBarDelegate {
 extension HomeViewController: BLTNNewPatientItemDelegate {
     func create(newPatient: [String : Any]) {
         bulletinManager.dismissBulletin()
-        service.createPatient(newPatient) {[weak self] (result) -> (Void) in
+        var patientData = Data()
+        do {
+            patientData = try JSONSerialization.data(withJSONObject: newPatient, options: .prettyPrinted)
+        } catch {
+            print("unable to encode patient's data")
+            return
+        }
+
+        APIPatients.createPatient(data: patientData) { [weak self] result in
+            guard let weakSelf = self else { return }
             switch result {
             case true:
-                self?.getPatients()
+                weakSelf.getPatients()
                 break
             case false:
-                let alertView = UIAlertController(title: "Ошибка",
-                                                  message: "Не удалось добавить пациента, попробуйте позже",
-                                                  preferredStyle: .alert)
-                
+                let alertView = UIAlertController(title: "Ошибка", message: "Не удалось добавить пациента, попробуйте позже", preferredStyle: .alert)
                 let action = UIAlertAction(title: "Хорошо", style: UIAlertAction.Style.default, handler: { (action) in
                     alertView.dismiss(animated: true, completion: nil)
                 })
                 
                 alertView.addAction(action)
-                self?.present(alertView, animated: true, completion: nil)
+                weakSelf.present(alertView, animated: true, completion: nil)
                 break
             }
         }

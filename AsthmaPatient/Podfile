@@ -10,4 +10,5 @@ pod 'Alamofire'
 pod "PromiseKit", "~> 6.8"
 pod 'MagazineLayout'
 pod 'BulletinBoard'
+pod "PromiseKit", "~> 6.8"
 end

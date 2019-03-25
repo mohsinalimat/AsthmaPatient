@@ -21,7 +21,6 @@ class PatientViewController: UIViewController, StoryboardSceneBased {
     
     static var sceneStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
-    private let service = APIService()
     private lazy var bulletinManager: BLTNItemManager = {
         let rootItem = BLTNNewStateItem(title: "Добавить состояние")
         rootItem.actionButtonTitle = "Добавить"
@@ -50,12 +49,12 @@ class PatientViewController: UIViewController, StoryboardSceneBased {
         
         if let newPatient = patient {
             navigationItem.title = "\(newPatient.lastName) \(newPatient.firstName)"
-            service.getPatientsHistory(id: newPatient.patientId, completionHandler: { [weak self] result in
+            APIPatients.getPatientsHistory(patientID: newPatient.patientId) { [weak self] result in
                 self?.states = result
                 DispatchQueue.main.async {
                     self?.collectionView.reloadData()
                 }
-            })
+            }
         }
     }
     
@@ -121,14 +120,16 @@ extension PatientViewController: BLTNNewStateItemDelegate {
             return
         }
         
-        let intVal = NSNumber(value: patientID).stringValue
-        service.createPatientStatus(using: newStateData, patientId: intVal) {[weak self] (result) -> (Void) in
-            self?.service.getPatientsHistory(id: patientID, completionHandler: { (result) -> (Void) in
+        let intVal = NSNumber(value: patientID).intValue
+        APIPatients.createNewStatus(patientID: intVal, data: newStateData) { [weak self] success in
+            guard let weakSelf = self, success else { return }
+            APIPatients.getPatientsHistory(patientID: intVal, completionHandler: { result in
                 DispatchQueue.main.async {
-                    self?.states = result
-                    self?.collectionView.reloadData()
+                    weakSelf.states = result
+                    weakSelf.collectionView.reloadData()
                 }
             })
+
         }
     }
 }

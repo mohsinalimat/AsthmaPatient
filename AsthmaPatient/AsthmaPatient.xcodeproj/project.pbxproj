@@ -26,9 +26,6 @@
 		0FCAAA3B221DB1E900CCFE46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FCAAA39221DB1E900CCFE46 /* LaunchScreen.storyboard */; };
 		0FCAAA43221DB1F600CCFE46 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCAAA42221DB1F600CCFE46 /* Patient.swift */; };
 		0FCAAA45221DB25800CCFE46 /* Symptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCAAA44221DB25800CCFE46 /* Symptom.swift */; };
-		0FCAAA49221DB49800CCFE46 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCAAA48221DB49800CCFE46 /* APIService.swift */; };
-		0FCAAA4B221DB60500CCFE46 /* Notes.json in Sources */ = {isa = PBXBuildFile; fileRef = 0FCAAA4A221DB60500CCFE46 /* Notes.json */; };
-		0FD583472226AF8E00C18EB7 /* HomeViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD583462226AF8E00C18EB7 /* HomeViewInteractor.swift */; };
 		0FD583492226B5BA00C18EB7 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD583482226B5BA00C18EB7 /* Networking.swift */; };
 		A43C59F2A10281C7D6B36F42 /* Pods_AsthmaPatient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B1C6DA7E0BB6B7919993F3 /* Pods_AsthmaPatient.framework */; };
 /* End PBXBuildFile section */
@@ -55,9 +52,6 @@
 		0FCAAA3C221DB1E900CCFE46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FCAAA42221DB1F600CCFE46 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		0FCAAA44221DB25800CCFE46 /* Symptom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symptom.swift; sourceTree = "<group>"; };
-		0FCAAA48221DB49800CCFE46 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		0FCAAA4A221DB60500CCFE46 /* Notes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Notes.json; sourceTree = "<group>"; };
-		0FD583462226AF8E00C18EB7 /* HomeViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewInteractor.swift; sourceTree = "<group>"; };
 		0FD583482226B5BA00C18EB7 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		4B1CF9045044197EF7301804 /* Pods-AsthmaPatient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaPatient.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaPatient/Pods-AsthmaPatient.release.xcconfig"; sourceTree = "<group>"; };
 		7EC0B697D872C1C5E868BAC4 /* Pods-AsthmaPatient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsthmaPatient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsthmaPatient/Pods-AsthmaPatient.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				0FCAAA32221DB1E800CCFE46 /* HomeViewController.swift */,
-				0FD583462226AF8E00C18EB7 /* HomeViewInteractor.swift */,
 				0FB3D6C52221854C00459992 /* PatientTableViewCell.swift */,
 				0F5F3B90222DC59E00492F13 /* BLTNNewPatientItem.swift */,
 			);
@@ -145,10 +138,7 @@
 				0FCAAA39221DB1E900CCFE46 /* LaunchScreen.storyboard */,
 				0FCAAA3C221DB1E900CCFE46 /* Info.plist */,
 				0FD58345222695C500C18EB7 /* Network */,
-				0FB3D6CB2221A45500459992 /* Medicine.swift */,
-				0FCAAA42221DB1F600CCFE46 /* Patient.swift */,
-				0FCAAA44221DB25800CCFE46 /* Symptom.swift */,
-				0FB3D6C72221970000459992 /* PatientStatus.swift */,
+				9084D3C22248D6C500E73972 /* Models */,
 				0F6529492237CC9A00A40663 /* EmptyStateView.xib */,
 			);
 			path = AsthmaPatient;
@@ -157,8 +147,6 @@
 		0FD58345222695C500C18EB7 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				0FCAAA4A221DB60500CCFE46 /* Notes.json */,
-				0FCAAA48221DB49800CCFE46 /* APIService.swift */,
 				0FD583482226B5BA00C18EB7 /* Networking.swift */,
 				0F6EB3E82226C73100035D82 /* APIPatients.swift */,
 			);
@@ -171,6 +159,17 @@
 				F5B1C6DA7E0BB6B7919993F3 /* Pods_AsthmaPatient.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9084D3C22248D6C500E73972 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0FB3D6CB2221A45500459992 /* Medicine.swift */,
+				0FCAAA42221DB1F600CCFE46 /* Patient.swift */,
+				0FCAAA44221DB25800CCFE46 /* Symptom.swift */,
+				0FB3D6C72221970000459992 /* PatientStatus.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		BC9868CC9B2A7E8452B25BF2 /* Pods */ = {
@@ -284,7 +283,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AsthmaPatient/Pods-AsthmaPatient-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AsthmaPatient/Pods-AsthmaPatient-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AloeStackView/AloeStackView.framework",
 				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BLTNBoard.framework",
@@ -309,7 +308,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AsthmaPatient/Pods-AsthmaPatient-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AsthmaPatient/Pods-AsthmaPatient-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -320,8 +319,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FCAAA33221DB1E800CCFE46 /* HomeViewController.swift in Sources */,
-				0FD583472226AF8E00C18EB7 /* HomeViewInteractor.swift in Sources */,
-				0FCAAA4B221DB60500CCFE46 /* Notes.json in Sources */,
 				0FD583492226B5BA00C18EB7 /* Networking.swift in Sources */,
 				0F5F3B85222D9ECF00492F13 /* InfoCustomView.swift in Sources */,
 				0FCAAA45221DB25800CCFE46 /* Symptom.swift in Sources */,
@@ -330,7 +327,6 @@
 				0FB3D6C82221970000459992 /* PatientStatus.swift in Sources */,
 				0FB3D6C62221854C00459992 /* PatientTableViewCell.swift in Sources */,
 				0FB3D6CC2221A45600459992 /* Medicine.swift in Sources */,
-				0FCAAA49221DB49800CCFE46 /* APIService.swift in Sources */,
 				0FCAAA43221DB1F600CCFE46 /* Patient.swift in Sources */,
 				0F6EB3E92226C73100035D82 /* APIPatients.swift in Sources */,
 				0FB3D6CE2221A6C200459992 /* PatientStatusCollectionViewCell.swift in Sources */,

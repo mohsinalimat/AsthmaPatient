@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import PromiseKit
 
 class Environment {
     
@@ -45,8 +46,8 @@ class Endpoint {
     //MARK: Serialization
     //var serializaer
     
-    init(env: Environment, path: String, httpMehod: HTTPMethod = .get, httpHeaders: HTTPHeaders?, query: Parameters?,
-         body: Data?, contentType: String = "application/json", timeout: TimeInterval,
+    init(env: Environment, path: String, httpMehod: HTTPMethod = .get, httpHeaders: HTTPHeaders? = ["Content-Type" : "application/json"], query: Parameters? = nil,
+         body: Data? = nil, contentType: String = "application/json", timeout: TimeInterval,
          statusCodes:[Int] = Array(200..<300)) {
         self.env = env
         self.path = path
@@ -74,7 +75,7 @@ class APIRequest {
     }
 }
 
-extension APIRequest: URLRequestConvertible {
+extension APIRequest: Alamofire.URLRequestConvertible {
     func asURLRequest() throws -> URLRequest {
         var request = try URLRequest(url: url, method: endpoint.httpMehod, headers: endpoint.httpHeaders)
         let encoding = URLEncoding(destination: .queryString, arrayEncoding: .noBrackets, boolEncoding: .numeric)
@@ -85,14 +86,12 @@ extension APIRequest: URLRequestConvertible {
     }
 }
 
-//TODO: Add generic
 class Dispatcher {
     static let shared = Dispatcher()
     
     @discardableResult
-    func dispatch(request: APIRequest,
-                         completion: @escaping (Alamofire.Result<Any>) -> Void) -> Request {
-        var afrequest = Alamofire.request(request)
+    func dispatch(request: APIRequest, completion: @escaping (Alamofire.Result<Any>) -> Void) -> Request {
+        var afrequest = Alamofire.request(request as Alamofire.URLRequestConvertible)
         afrequest = afrequest.validate(contentType: [request.endpoint.contentType])
         return afrequest
             .validate(statusCode: request.endpoint.statusCodes)
@@ -100,6 +99,26 @@ class Dispatcher {
                 //TODO: add option to handle errors manually
                 completion(response.result)
             })
+    }
+    
+    func dispatchPromise(request: APIRequest) -> Promise<[String : Any]> {
+        var afrequest = Alamofire.request(request as Alamofire.URLRequestConvertible)
+        afrequest = afrequest.validate(contentType: [request.endpoint.contentType])
+        return Promise { seal in
+            afrequest
+                .validate(statusCode: request.endpoint.statusCodes)
+                .responseJSON { response in
+                    switch response.result {
+                    case .success(let json):
+                        guard let json = json  as? [String: Any] else {
+                            return seal.reject(AFError.responseValidationFailed(reason: .dataFileNil))
+                        }
+                        seal.fulfill(json)
+                    case .failure(let error):
+                        seal.reject(error)
+                    }
+            }
+        }
     }
 }
 
